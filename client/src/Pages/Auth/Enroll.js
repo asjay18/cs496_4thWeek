@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 function Enroll(){
     const initialValues = { nickname: "", email: "", password: "" };
@@ -19,10 +20,23 @@ function Enroll(){
             //form의 validation 통과
             console.log(formValues)
             try {
-                //회원가입 시도
-                //된다면
-                navigate("/login");
-                window.location.reload();
+                axios.post("http://localhost:5000/api/signup", {
+                    nickname: formValues.nickname,
+                    email: formValues.email,
+                    password: formValues.password
+                }).then(function (response) {
+                    
+                    if(response.data === "회원가입 성공") {
+                        navigate("/");
+                        window.location.reload();
+                    } else {
+                        
+                    }
+                    
+                    
+                }).catch(err => {
+                    console.log(err);
+                });
             } catch (err) {
                 console.log(err);
             }

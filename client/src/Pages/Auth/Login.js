@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import './Auth.css';
+import axios from "axios";
 
 function Login() {
     const initialValues = { email: "", password: "" };
@@ -21,9 +22,18 @@ function Login() {
             console.log(formValues)
             try {
                 //로그인 시도
+
+                axios.get("http://localhost:5000/api/login", {
+                    email: formValues.email,
+                    password: formValues.password
+                }).then(function (response) {
+                    
+                }).catch(err => {
+                    console.log(err);
+                });
+
                 //된다면 (참고 사이트: https://www.youtube.com/watch?v=T5dIjye4b-I (12분))
-                navigate("/");
-                window.location.reload();
+                
             } catch (err) {
                 console.log(err);
             }
