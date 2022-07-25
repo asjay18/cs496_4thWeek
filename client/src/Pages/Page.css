@@ -1,0 +1,84 @@
+button {
+    background-color: rgb(216, 112, 147);
+}
+button:hover{
+    background-color: rgb(230, 138, 168);
+}
+
+.topBar {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.topBar button {
+    width: 150px;
+    height: 50px;
+    border-radius: 8px;
+    margin: 0px 10px;
+}
+
+.makePage{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+}
+
+.stepper {
+    width: 100%;
+    max-width: 700px;
+    margin: 10px 0px;
+}
+
+.quizForm {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 700px;
+}
+
+.quizForm label {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.quizForm select,#title {
+    display: block;
+    font-size: 16px;
+    line-height: 24px;
+    padding: 11px 15px;
+    height: 40px;
+    border-radius: 5px;
+    color: black;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    box-shadow: none;
+    width: 100%;
+}
+
+.quizForm select,#title:focus {
+    outline: none;
+}
+
+.inputFiles {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    gap: 10px;
+}
+
+.input-file-button {
+    display: block;
+    font-size: 16px !important ;
+    font-weight: normal !important ;
+    padding: 8px !important;
+    line-height: 24px;
+    height: 40px;
+    border-radius: 5px;
+    background-color: #ddd;
+    color: black;
+    width: 30%;
+}

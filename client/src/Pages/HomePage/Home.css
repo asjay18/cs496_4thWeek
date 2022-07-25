@@ -1,0 +1,32 @@
+.quizesTab{
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 2vw;
+    padding: 10px 1vw;
+    user-select: none;
+}
+
+.quizesTab a{
+    color: black;
+    text-decoration: none;
+}
+
+.quizesTab a:hover{
+    color: blue;
+}
+
+.type{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background-color: #eee;
+    width: 30vw;
+    height: 45%;
+    font-size: 24px;
+    text-align: left;
+    border-radius: 8px;
+    color: black;
+    justify-content: center;
+}

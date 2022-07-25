@@ -1,0 +1,73 @@
+.authPage{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.authForm{
+    max-width: 500px;
+    width: 100%;
+    border: 1px solid #dfdfdf;
+    padding: 20px 30px;
+    border-radius: 8px;
+    background: #fff;
+}
+
+.field{
+    margin: 10px 0px;
+}
+
+.field input{
+    display: block;
+    font-size: 16px;
+    line-height: 24px;
+    padding: 11px 15px;
+    height: 48px;
+    border-radius: 5px;
+    color: black;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    box-shadow: none;
+    width: 100%;
+}
+
+.field input:focus{
+    outline: none;
+    background-color: #eee;
+}
+
+.field p{
+    color: rgb(190, 8, 8);
+    padding-top: 2px;
+    padding-left: 4px;
+    font-size: 12px;
+    text-align: start;
+}
+
+button{
+    width: 100%;
+    height: 40px;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+    border: 0px solid ;
+    border-radius: 40px;
+    margin-top: 10px;
+}
+
+#submit{
+    background-color: #1c55f3;
+}
+#submit:hover{
+    background-color: #3a6dfa;
+}
+
+#enroll{
+    background-color: #929292;
+}
+#enroll:hover{
+    background-color: #a3a3a3;
+}
