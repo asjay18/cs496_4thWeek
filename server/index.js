@@ -32,6 +32,7 @@ app.get("/api/login", (req, res) => {
         } else {
             console.log(result);
             if(result.length > 0) {
+                console.log(res);
                 console.log("로그인 성공");
                 res.send("로그인 성공");
             } else {
@@ -39,16 +40,6 @@ app.get("/api/login", (req, res) => {
                 res.send("로그인 실패");
             }
         }
-        
-        // if(result.length > 0) {
-        //     result.status(200).send({
-        //         "id": result[0].id,
-        //         "nickname": result[0].nickname,
-        //         "email": result[0].email
-        //     });
-        // } else {
-        //     result.status(400).send("비밀번호를 확인하세요");
-        // }
     });
 });
 
@@ -86,24 +77,25 @@ app.post("/write/quiz", (req, res) => {
         if(error) {
             console.log(error)
         } else {
-
-        }
-    })
-})
-
-app.get("/list", (req, res) => {
-    const sqlGet = "SELECT * FROM board";
-    db.query(sqlGet, (error, result) => {
-        if (error) {
-            console.log(error);
-        } else {
-            res.json(result);
             
         }
     })
 })
 
-app.get("/view/:id", (req, res) => {
+app.get("/list/:type", (req, res) => {
+    const sqlGet = "SELECT * FROM board WHERE type = ?";
+    const { type } = req.params;
+    db.query(sqlGet, type, (error, result) => {
+        if (error) {
+            console.log(error);
+        } else {
+            res.json(result);
+            console.log(result);
+        }
+    })
+})
+
+app.get("/quiz/:id", (req, res) => {
     const sqlGet = "SELECT (quiz, answer) FROM board WHERE idBoard = ?"
     const { id } = req.params;
     db.query(sqlGet, id, (error, result) => {
@@ -111,6 +103,7 @@ app.get("/view/:id", (req, res) => {
             console.log(error);
         } else {
             res.json(result);
+            console.log(result);
         }
     })
 })

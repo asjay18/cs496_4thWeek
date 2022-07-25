@@ -1,41 +1,59 @@
 import React from "react";
 import { useState } from "react";
+import { useEffect } from "react";
+import {Link} from "react-router-dom";
+import axios from "axios";
 
 function FourWordQuiz() {
-    const fourWordList = [
-        {word: '고슴', ans: '도치' },
-        {word: '집에', ans: '갈래' },
-        {word: '놀고', ans: '싶어' },
-        {word: '궁칼', ans: '국수' },
-        {word: '끝'}
-    ]
-    
-    const [count, setCount] = useState(0);
-    const countUntil = (fourWordList.length-1)*2;
-    const [buttonText, setButtonText] = useState('정답 보기');
+    const [data, setData] = useState([]);
 
-    const seeNext = (e) => {
-        if(count+1 >= countUntil){
-            setCount(countUntil)
-            setButtonText('나가기')
-        }
-        else{
-            if(count%2===0) setButtonText('다음으로')
-            else setButtonText('정답 보기')
-            setCount(count+1)
-        }
+    const loadData = async () => {
+        const response = await axios.get("http://localhost:5000/list/네글자");
+        setData(response.data);
     }
 
-    return (
-        <div className="quizPage">
-            <div className="quizAnswer">
-                <h1>{
-                    (count%2===0)?
-                    fourWordList[parseInt(count/2)].word:
-                    fourWordList[parseInt(count/2)].ans
-                }</h1>
-            </div>
-            <button onClick={seeNext}>{buttonText}</button>
+    useEffect(() => {
+        loadData();
+    }, []);
+
+    
+
+
+    return(
+        
+        <div>
+            
+            <h1>네글자 퀴즈</h1>
+
+            <Link to="/makeQuiz">
+                <button>퀴즈 만들기</button>
+            </Link>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th>Title</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {data.map((item, index) => {
+                        return (
+                            <tr>
+                                <th>{index+1}</th>
+                                <Link to={`/quiz/${item.id}`}>
+                                <td>{item.title}</td>
+                                </Link>
+                                {/* <td>
+                                    <Link to={'/view/${item.id}'}>
+                                    <button>View</button>
+                                    </Link>
+                                </td> */}
+                            </tr>
+                        )
+                    })}
+                </tbody>
+            </table>
         </div>
     )
 }
