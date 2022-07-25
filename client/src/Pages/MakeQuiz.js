@@ -2,32 +2,12 @@ import React from "react";
 import { useState } from "react";
 import { Stepper,Step,StepLabel } from '@mui/material';
 
-const people= [
-  { firstName: "John", lastName: "Smith" },
-  { firstName: "Bill", lastName: "Jones" },
-  { firstName: "Roger", lastName: "Moore" }
-];
-const People= ({ i, name }) => (
-  <div>
-    {i} {name}
-  </div>
-);
-// function MakeQuiz() {
-//   return (
-//     <div>
-//       {people.map((p, i) => (
-//         <People {...p} key={i} />
-//       ))}
-//     </div>
-//   );
-// }
-
 function MakeQuiz(){
     const initialValues = { type: "people", title: "" };
     const [formValues, setFormValues] = useState(initialValues);
 
     const [imageState, setImageState] = useState('사진을 업로드해주세요');
-    const [formImages, setFormImages] = useState({});
+    const [formImages, setFormImages] = useState([]);
 
     const steps = ['Step 1', 'Step 2'];
     const stepAction = ['다음으로 가기', '제출하기'];
@@ -42,10 +22,11 @@ function MakeQuiz(){
     const handleImages = (e) => {
         fileList = e.target.files
         console.log(e.target.files)
-        setFormImages({...fileList})
+        setFormImages(fileList)
+        console.log(fileList)
         setImageState(`업로드할 사진 수: 총 ${fileList.length}개`)
     }
-    
+
     const handleSubmit = async (e)=>{
         e.preventDefault();
         console.log('here')
@@ -104,9 +85,18 @@ function MakeQuiz(){
             }
             {activeStep===1 &&
                 <div>
-                {(formImages!=null)?Array.from(formImages).forEach((item) => (
-                    <People {...item.name} key={item.type} />
-                )):<></>}
+                    <p>리스트</p>
+                    {(formImages!=null) ? Array.from(formImages).map((item)=>{
+                        console.log(item);
+                        return (
+                        <div className="imageList">
+                            <div>{item.name}</div>
+                            <input type="text" placeholder="정답"></input>
+                            <div></div>
+                            <img src={`${item}`}/>
+                        </div>)
+                    })
+                    :null}
                 </div>
             }
             

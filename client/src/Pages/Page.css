@@ -82,3 +82,20 @@ button:hover{
     color: black;
     width: 30%;
 }
+
+.imageList{
+    border: 1px #ccc solid;
+    padding: 10px;
+    margin: 10px;
+    display: flex;
+    gap: 10px;
+}
+
+.imageList input{
+    height: 2rem;
+}
+
+.imageList img {
+    width: 80px;
+    height: 80px;
+}
