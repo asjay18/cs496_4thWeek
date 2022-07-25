@@ -24,6 +24,9 @@ button:hover{
     width: 100%;
     align-items: center;
 }
+.makePage h1{
+    padding-bottom: 10px;
+}
 
 .stepper {
     width: 100%;
@@ -98,4 +101,33 @@ button:hover{
 .imageList img {
     width: 80px;
     height: 80px;
+}
+
+.quizForm1 {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    width: 100%;
+    max-width: 500px;
+}
+
+.quizForm1 button{
+    width: 80%;
+    background-color: olivedrab !important;
+}
+
+.quizInputField {
+    width: 100%;
+    height: 30px;
+    display: flex;
+    gap: 1rem;
+}
+.quizInputField input {
+    width: 50%;
+    border: 0.5px #ddd solid;
+    border-radius: 5px;
+}
+.quizInputField input:focus {
+    outline: none;
 }
