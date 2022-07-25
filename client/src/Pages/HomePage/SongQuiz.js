@@ -17,7 +17,13 @@ function SongQuiz(){
     return(
         
         <div>
+            
             <h1>초성 퀴즈</h1>
+
+            <Link to="/makeChosungQuiz">
+                <button>make quiz</button>
+            </Link>
+            
             <table>
                 <thead>
                     <tr>
@@ -30,10 +36,14 @@ function SongQuiz(){
                         return (
                             <tr>
                                 <th>{index+1}</th>
+                                <Link to={'/view/${item.id}'}>
                                 <td>{item.title}</td>
-                                <td>
-                                    
-                                </td>
+                                </Link>
+                                {/* <td>
+                                    <Link to={'/view/${item.id}'}>
+                                    <button>View</button>
+                                    </Link>
+                                </td> */}
                             </tr>
                         )
                     })}
