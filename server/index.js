@@ -79,9 +79,9 @@ app.post("/api/signup",  (req, res) => {
 });
 
 app.post("/write/quiz", (req, res) => {
-    const {title, writerId, quiz, answer} = {title: "한국영화초성퀴즈", writerId: 28, quiz: "ㄱㅅㅊ\nㅇㅋㅌㄷㅁㄱ\n", answer:"기생충\n웰컴투동막골\n"};
-    //const {quiz, answer} = req.body;
-    const sqlQuiz = "INSERT INTO board (title, writerId, quiz, answer) VALUES (?, ?, ?, ?)";
+    //const {title, writerId, quiz, answer} = {title: "한국영화초성퀴즈", writerId: 28, quiz: "ㄱㅅㅊ\nㅇㅋㅌㄷㅁㄱ\n", answer:"기생충\n웰컴투동막골\n"};
+    const {title, writerId, quiz, answer} = req.body;
+    const sqlQuiz = "INSERT INTO board (title, writerId, quiz, answer, type) VALUES (?, ?, ?, ?)";
     db.query(sqlQuiz, [title, writerId, quiz, answer], (error, result) => {
         if(error) {
             console.log(error)
@@ -99,6 +99,18 @@ app.get("/list", (req, res) => {
         } else {
             res.json(result);
             
+        }
+    })
+})
+
+app.get("/view/:id", (req, res) => {
+    const sqlGet = "SELECT (quiz, answer) FROM board WHERE idBoard = ?"
+    const { id } = req.params;
+    db.query(sqlGet, id, (error, result) => {
+        if (error) {
+            console.log(error);
+        } else {
+            res.json(result);
         }
     })
 })

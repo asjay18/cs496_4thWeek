@@ -24,14 +24,15 @@ function App() {
           <Route path='/' element={<Home/>} />
           <Route path='/likedPage' element={<LikedPage/>} />
           <Route path='/madePage' element={<MadePage/>} />
-          <Route path='/make' element={<MakeQuiz/>}/>
+          <Route path='/make' element={<MakeQuiz/>} />
+          
           <Route path='/peopleQuiz' element={<PeopleQuiz/>} />
           <Route path='/songQuiz' element={<SongQuiz/>} />
           <Route path='/jurumarble' element={<Jurumarble/>} />
           <Route path='/login' element={<Login/>} />
-          <Route path='/enroll' element={<Enroll/>}/>
+          <Route path='/enroll' element={<Enroll/>} />
         </Routes>
-      </div>      
+      </div>
     </div>
   )
 }
