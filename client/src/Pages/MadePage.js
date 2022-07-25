@@ -12,6 +12,10 @@ function MadePage(){
                     navigate("/make");
                     window.location.reload();
                 }}>새로 만들기</button>
+                <button type="button" onClick={()=>{
+                    navigate("/make/fourwords");
+                    window.location.reload();
+                }}>네글자 퀴즈 만들기</button>
             </div>
             <h1>Made Quizes</h1>
         </div>
