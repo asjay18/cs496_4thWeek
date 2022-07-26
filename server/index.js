@@ -108,6 +108,18 @@ app.get("/quiz/:id", (req, res) => {
     })
 })
 
+app.get("/view/:id", (req, res) => {
+    const sqlGet = "SELECT (quiz, answer) FROM board WHERE idBoard = ?"
+    const { id } = req.params;
+    db.query(sqlGet, id, (error, result) => {
+        if (error) {
+            console.log(error);
+        } else {
+            res.json(result);
+        }
+    })
+})
+
 // app.delete("/api/remove/:id",  (req, res) => {
 //     const { id } = req.params;
 //     const sqlRemove = "DELETE FROM user WHERE id = ?";

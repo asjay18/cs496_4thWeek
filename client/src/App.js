@@ -15,8 +15,10 @@ import Jurumarble from "./Pages/HomePage/Jurumarble"
 import FourWordQuiz from './Pages/HomePage/FourWordQuiz';
 import ChosungQuiz from './Pages/HomePage/ChosungQuiz';
 
-import MakeQuiz from './Pages/MakeQuiz';
 import Quiz from './Pages/HomePage/Quiz';
+import MakeQuiz from './Pages/MakeForm/MakeQuiz';
+import MakeFourWordQuiz from './Pages/MakeForm/MakeFourWordQuiz';
+
 
 function App() {
   return (
@@ -26,8 +28,10 @@ function App() {
         <Routes>
           <Route path='/' element={<Home/>} />
           <Route path='/likedPage' element={<LikedPage/>} />
+
           <Route path='/madePage' element={<MadePage/>} />
           <Route path='/make' element={<MakeQuiz/>} />
+          <Route path='/make/fourwords' element={<MakeFourWordQuiz/>} />
           
           <Route path='/peopleQuiz' element={<PeopleQuiz/>} />
           <Route path='/songQuiz' element={<SongQuiz/>} />
