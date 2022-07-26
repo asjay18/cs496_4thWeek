@@ -6,7 +6,7 @@ function SongQuiz(){
     const [data, setData] = useState([]);
 
     const loadData = async () => {
-        const response = await axios.get("http://localhost:5000/list");
+        const response = await axios.get("http://localhost:5000/list/음악");
         setData(response.data);
     }
 
@@ -18,11 +18,11 @@ function SongQuiz(){
         
         <div>
             
-            <h1>초성 퀴즈</h1>
+            <h1>음악 퀴즈</h1>
 
-            <Link to="/makeChosungQuiz">
+            {/* <Link to="/makeChosungQuiz">
                 <button>make quiz</button>
-            </Link>
+            </Link> */}
             
             <table>
                 <thead>

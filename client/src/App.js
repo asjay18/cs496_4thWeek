@@ -13,9 +13,12 @@ import PeopleQuiz from "./Pages/HomePage/PeopleQuiz";
 import SongQuiz from "./Pages/HomePage/SongQuiz";
 import Jurumarble from "./Pages/HomePage/Jurumarble"
 import FourWordQuiz from './Pages/HomePage/FourWordQuiz';
+import ChosungQuiz from './Pages/HomePage/ChosungQuiz';
 
+import Quiz from './Pages/HomePage/Quiz';
 import MakeQuiz from './Pages/MakeForm/MakeQuiz';
 import MakeFourWordQuiz from './Pages/MakeForm/MakeFourWordQuiz';
+
 
 function App() {
   return (
@@ -32,10 +35,12 @@ function App() {
           
           <Route path='/peopleQuiz' element={<PeopleQuiz/>} />
           <Route path='/songQuiz' element={<SongQuiz/>} />
+          <Route path='/chosungQuiz' element={<ChosungQuiz/>} />
           <Route path='/jurumarble' element={<Jurumarble/>} />
           <Route path='/fourWordQuiz' element={<FourWordQuiz/>}/>
           <Route path='/login' element={<Login/>} />
           <Route path='/enroll' element={<Enroll/>} />
+          <Route path='/quiz/:id' element={<Quiz/>} />
         </Routes>
       </div>
     </div>
