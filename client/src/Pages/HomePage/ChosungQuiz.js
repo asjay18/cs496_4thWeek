@@ -36,7 +36,7 @@ function ChosungQuiz(){
                         return (
                             <tr>
                                 <th>{index+1}</th>
-                                <Link to={'/view/${item.id}'}>
+                                <Link to={`/quiz/${item.idBoard}`}>
                                 <td>{item.title}</td>
                                 </Link>
                                 {/* <td>

@@ -96,7 +96,7 @@ app.get("/list/:type", (req, res) => {
 })
 
 app.get("/quiz/:id", (req, res) => {
-    const sqlGet = "SELECT (quiz, answer) FROM board WHERE idBoard = ?"
+    const sqlGet = "SELECT * FROM board WHERE idBoard = ?"
     const { id } = req.params;
     db.query(sqlGet, id, (error, result) => {
         if (error) {

@@ -8,7 +8,6 @@ const Quiz = () => {
     const [list, setList] = useState({});
 
     const {id} = useParams();
-    console.log(id);
 
     useEffect(() => {
         axios
@@ -16,30 +15,38 @@ const Quiz = () => {
         .then((resp) => setList({ ...resp.data[0] }));
     }, [id]);
 
+    // console.log(list);
     // console.log(list.quiz);
     // console.log(list.answer);
 
+    const wordList = (list.quiz || ``).split(`\n`);
+    const ansList = (list.answer || ``).split(`\n`);
+    // type undefined 해결하는법
 
-    // let quizs = list.quiz.split("\n");
-    // let answers = list.answer.split("\n");
+    // console.log(wordList);
+    // console.log(ansList);
 
-    // var fourWordList = [];
-    // for(var i = 0; i<quizs.length; i++) {
-    //     fourWordList.append({word: quizs[i], ans: answers[i]});
-    // }
+    const fourWordList = [];
 
+    // fourWordList.push({word: '고슴', ans: '도치' });
+
+    // 반복문 다시써야할듯
+    for(var i = 0; i<wordList.length; i++) {
+        fourWordList.push({word: wordList[i], ans: ansList[i]});
+    }
+    // console.log(fourWordList);
     
-    // fourWordList.append({word: '끝'});
+    fourWordList.push({word: '끝'});
 
 
 
-    const fourWordList = [
-        {word: '고슴', ans: '도치' },
-        {word: '비트', ans: '코인' },
-        {word: '스파', ans: '게티' },
-        {word: '궁칼', ans: '국수' },
-        //{word: '끝'}
-    ]
+    // const fourWordList = [
+    //     {word: '고슴', ans: '도치' },
+    //     {word: '비트', ans: '코인' },
+    //     {word: '스파', ans: '게티' },
+    //     {word: '궁칼', ans: '국수' },
+    //     //{word: '끝'}
+    // ]
 
     const [count, setCount] = useState(0);
     const countUntil = (fourWordList.length-1)*2;
@@ -71,6 +78,7 @@ const Quiz = () => {
             <button onClick={seeNext}>{buttonText}</button>
         </div>
     )
+
 }
 
 
