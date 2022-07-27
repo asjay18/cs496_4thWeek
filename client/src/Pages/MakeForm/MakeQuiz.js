@@ -1,6 +1,8 @@
 import React from "react";
 import { useState } from "react";
 import { Stepper,Step,StepLabel } from '@mui/material';
+import imageCompression from "browser-image-compression";
+import axios from "axios";
 
 function MakeQuiz(){
     const initialValues = { type: "people", title: "" };
@@ -34,10 +36,30 @@ function MakeQuiz(){
             console.log('go to next');
             console.log(formValues);
             console.log(formImages);
+            //image server에 넣기
+            
+            const form = new FormData()
+            form.append('files', formImages[0]);
+            console.log(formImages[0])
+            form.append('userId', 11);
+            // console.log(formImages.length);
+            // Array.from(formImages).forEach((item)=>{
+            //     form.append('files', item);
+            // });
+            axios.post("http://192.249.18.147:80/new/quiz",form,{
+                headers: {'Content-Type': 'multipart/form-data'}
+            }).then(()=>{}).catch((err)=>{
+                console.log(err);
+            })
+            console.log('submit');
+            
             setActiveStep(activeStep+1);
         }
+        else if (activeStep === 1){
+            
+        }
         else{
-            console.log('submit');
+
         }
     }
 
@@ -52,13 +74,14 @@ function MakeQuiz(){
             </Stepper>
             {activeStep === 0 &&
                 <form className="quizForm" onSubmit={handleSubmit}>
-                    <label>퀴즈종류</label>
+                    {/* <label>퀴즈종류</label>
                     <select value={formValues.type} name="type" onChange={handleChange}>
                         <option value="people">인물퀴즈</option>
                         <option value="music">음악퀴즈</option>
                     </select>
-                    <label>퀴즈제목</label>
-                    <input
+                    <label>퀴즈제목</label> */}
+                    <input 
+
                         id="title"
                         type="text" 
                         name="title" 
@@ -74,7 +97,7 @@ function MakeQuiz(){
                     </div>
                     <input 
                         id="input-file"
-                        type="file" 
+                        type="file"
                         name="images"
                         multiple
                         onChange={handleImages}
@@ -84,12 +107,11 @@ function MakeQuiz(){
                 </form>
             }
             {activeStep===1 &&
-                <div>
+                <form>
                     <p>리스트</p>
                     {(formImages!=null) ? Array.from(formImages).map((item)=>{
-                        console.log(item);
                         return (
-                        <div className="imageList">
+                        <div className="imageList" key={item.name}>
                             <div>{item.name}</div>
                             <input type="text" placeholder="정답"></input>
                             <div></div>
@@ -97,7 +119,8 @@ function MakeQuiz(){
                         </div>)
                     })
                     :null}
-                </div>
+                    <button type="submit">{stepAction[activeStep]}</button>
+                </form>
             }
             
         </div>
