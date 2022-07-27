@@ -19,7 +19,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.get("/api/all", (req, res) => {
     db.query("SELECT * FROM user", (error, result) => {
         console.log(result);
-        res.send(result);
+        res.json(result);
     });
 })
 
@@ -27,17 +27,18 @@ app.get("/api/login", (req, res) => {
     const { email, password } = req.body;
     const sqlGet = "SELECT * FROM user WHERE email = ? AND password = ?";
     db.query(sqlGet, [email, password], (error, result) => {
+        console.log(email);
+        console.log(password);
         if (error) {
             console.log(error);
         } else {
             console.log(result);
             if(result.length > 0) {
-                console.log(res);
                 console.log("로그인 성공");
-                res.send("로그인 성공");
+                res.send(result);
             } else {
                 console.log("로그인 실패");
-                res.send("로그인 실패");
+                res.send(result);
             }
         }
     });
@@ -70,14 +71,14 @@ app.post("/api/signup",  (req, res) => {
 });
 
 app.post("/write/quiz", (req, res) => {
-    //const {title, writerId, quiz, answer} = {title: "한국영화초성퀴즈", writerId: 28, quiz: "ㄱㅅㅊ\nㅇㅋㅌㄷㅁㄱ\n", answer:"기생충\n웰컴투동막골\n"};
-    const {title, writerId, quiz, answer} = req.body;
-    const sqlQuiz = "INSERT INTO board (title, writerId, quiz, answer, type) VALUES (?, ?, ?, ?)";
-    db.query(sqlQuiz, [title, writerId, quiz, answer], (error, result) => {
+    //const {title, writerId, quiz, answer} = {title: "한국영화초성퀴즈", writerId: 28, quiz: "ㄱㅅㅊ\nㅇㅋㅌㄷㅁㄱ", answer:"기생충\n웰컴투동막골"};
+    const {title, writerId, quiz, answer, type} = req.body;
+    const sqlQuiz = "INSERT INTO board (title, writerId, quiz, answer, type) VALUES (?, ?, ?, ?, ?)";
+    db.query(sqlQuiz, [title, writerId, quiz, answer, type], (error, result) => {
         if(error) {
             console.log(error)
         } else {
-            
+            console.log(result);
         }
     })
 })
