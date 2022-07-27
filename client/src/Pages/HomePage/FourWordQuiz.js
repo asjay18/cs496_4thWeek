@@ -25,7 +25,7 @@ function FourWordQuiz() {
             
             <h1>네글자 퀴즈</h1>
 
-            <Link to="/makeQuiz">
+            <Link to="/make/fourwords">
                 <button>퀴즈 만들기</button>
             </Link>
             

@@ -7,11 +7,11 @@ function NavBar(){
             <CustomLink to="/">
                 <h3>Recreation</h3>
             </CustomLink>
-            {/* <ul className="navUl">
-                <CustomLink to="/">홈</CustomLink>
-                <CustomLink to="/likedPage">좋아요한 퀴즈</CustomLink>
+            <ul className="navUl">
+                {/* <CustomLink to="/">홈</CustomLink>
+                <CustomLink to="/likedPage">좋아요한 퀴즈</CustomLink> */}
                 <CustomLink to="/madePage">내가 만든 퀴즈</CustomLink>
-            </ul> */}
+            </ul>
             <Link className="loginButton" to="/login">로그인</Link>
         </div>
     )

@@ -27,10 +27,16 @@ function Login() {
                     email: formValues.email,
                     password: formValues.password
                 }).then(function (response) {
-                    
+                    // console.log(response.data);
+                    // localStorage.setItem('refresh-token', response.data['refresh-token']);
+                    // setCookie('access-token', response.data['access-token']);
                 }).catch(err => {
                     console.log(err);
                 });
+                
+                //로그아웃시
+                // removeCookie('access-token');
+                // localStorage.removeItem("refresh-token");
 
                 //된다면 (참고 사이트: https://www.youtube.com/watch?v=T5dIjye4b-I (12분))
                 

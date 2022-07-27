@@ -27,7 +27,7 @@ function Enroll(){
                 }).then(function (response) {
                     
                     if(response.data === "회원가입 성공") {
-                        navigate("/");
+                        navigate("/login");
                         window.location.reload();
                     } else {
                         
