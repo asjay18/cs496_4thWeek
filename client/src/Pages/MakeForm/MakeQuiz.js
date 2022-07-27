@@ -58,7 +58,7 @@ function MakeQuiz(){
                         <option value="music">음악퀴즈</option>
                     </select>
                     <label>퀴즈제목</label>
-                    <input 
+                    <input
                         id="title"
                         type="text" 
                         name="title" 
