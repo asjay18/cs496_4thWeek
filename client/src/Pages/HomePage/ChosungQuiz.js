@@ -6,7 +6,7 @@ function ChosungQuiz(){
     const [data, setData] = useState([]);
 
     const loadData = async () => {
-        const response = await axios.get("http://localhost:5000/list/초성");
+        const response = await axios.get("http://192.249.18.147:80/list/초성");
         setData(response.data);
     }
 

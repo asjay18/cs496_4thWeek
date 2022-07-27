@@ -8,7 +8,7 @@ function FourWordQuiz() {
     const [data, setData] = useState([]);
 
     const loadData = async () => {
-        const response = await axios.get("http://localhost:5000/list/네글자");
+        const response = await axios.get("http://192.249.18.147:80/list/네글자");
         setData(response.data);
     }
 
@@ -41,7 +41,7 @@ function FourWordQuiz() {
                         return (
                             <tr>
                                 <th>{index+1}</th>
-                                <Link to={`/quiz/${item.idBoard}`}>
+                                <Link to={`/quiz/${item.bid}`}>
                                 <td>{item.title}</td>
                                 </Link>
                                 {/* <td>

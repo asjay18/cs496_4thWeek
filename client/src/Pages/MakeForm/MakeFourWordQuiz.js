@@ -46,12 +46,13 @@ function MakeFourWordQuiz(){
         // console.log(words.slice(0, -1));
         // console.log(answers.slice(0, -1));
         
-        axios.post("http://localhost:5000/write/quiz", {
-            title: title,
-            writerId: 29,
-            quiz: words.slice(0, -1),
-            answer: answers.slice(0, -1),
-            type: '네글자'
+        axios.post("http://192.249.18.147:80/write/quiz", {
+            params:{
+                title: title,
+                writeruid: 1, //TODO
+                quiz: words.slice(0, -1),
+                answer: answers.slice(0, -1),
+                type: '네글자'}
         }).then(function (response) {
 
         }).catch(err => {
