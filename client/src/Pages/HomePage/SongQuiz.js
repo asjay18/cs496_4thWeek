@@ -20,9 +20,6 @@ function SongQuiz(){
             
             <h1>음악 퀴즈</h1>
 
-            {/* <Link to="/makeChosungQuiz">
-                <button>make quiz</button>
-            </Link> */}
             
             <table>
                 <thead>
@@ -49,6 +46,15 @@ function SongQuiz(){
                     })}
                 </tbody>
             </table>
+
+            {(sessionStorage.getItem("token") === 'null') ? 
+            <Link to="/login">
+                <button type="button" id="makequiz">퀴즈 만들기</button>
+            </Link> : 
+            <Link to="/make/음악">
+                <button type="button" id="makequiz">퀴즈 만들기</button>
+            </Link>}
+
         </div>
     )
 }

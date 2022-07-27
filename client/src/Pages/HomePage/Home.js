@@ -7,61 +7,62 @@ function Home(){
         <div>
             <div className="quizesTab">
                 <Link to="/fourWordQuiz">
-                    <div className="type" id="fourWordQuiz">
+                    <div className="type" id="buttonQuiz">
                         <h4>네글자 퀴즈</h4>
-                        <div>image of 00,00</div>
+                        <img src="/images/fourwordImage.png"></img>
+                        {/* <div>image of 00,00</div> */}
                     </div>
                 </Link>
                 <Link to="/chosungQuiz">
-                    <div className="type" id="chosungQuiz">
+                    <div className="type" id="buttonQuiz">
                         <h4>초성 퀴즈</h4>
-                        <div>image ㄱㄴㄷㄹ</div>
+                        <img src="/images/chosungImage.png"></img>
                     </div>
                 </Link>
-                <Link to="/noneSenseQuiz">
-                    <div className="type" id="noneSenseQuiz">
-                        <h4>넌센스 퀴즈</h4>
-                        <div>image of nonesense</div>
-                    </div>
-                </Link>
-            </div>
-            <div className="quizesTab">
-                <Link to="/peopleQuiz">
-                    <div className="type" id="peopleQuiz">
+                <Link to="/sokdamQuiz">
+                    <div className="type" id="buttonQuiz">
                         <h4>속담 퀴즈</h4>
-                        <div>image of person</div>
-                    </div>
-                </Link>
-                <Link to="/quoteQuiz">
-                    <div className="type" id="quoteQuiz">
-                        <h4>명대사 퀴즈</h4>
-                        <div>image of 명대사</div>
-                    </div>
-                </Link>
-                <Link to="/jurumarble">
-                    <div className="type" id="jurumarble">
-                        <h4>몸으로 말해요</h4>
-                        <div>image of boardgame</div>
+                        <img src="/images/sokdamImage.jpeg"></img>
                     </div>
                 </Link>
             </div>
             <div className="quizesTab">
                 <Link to="/peopleQuiz">
-                    <div className="type" id="peopleQuiz">
+                    <div className="type" id="buttonQuiz">
                         <h4>인물 퀴즈</h4>
-                        <div>image of person</div>
+                        <img src="/images/peopleImage.png"></img>
                     </div>
                 </Link>
                 <Link to="/songQuiz">
-                    <div className="type" id="songQuiz">
+                    <div className="type" id="buttonQuiz">
                         <h4>음악 퀴즈</h4>
-                        <div>image of song</div>
+                        <img src="/images/songImage.jpg"></img>
+                    </div>
+                </Link>
+                <Link to="/quoteQuiz">
+                    <div className="type" id="buttonQuiz">
+                        <h4>명대사 퀴즈</h4>
+                        <img src="/images/quoteImage.jpg"></img>
+                    </div>
+                </Link>
+            </div>
+            <div className="quizesTab">
+                <Link to="/jurumarble">
+                    <div className="type" id="buttonQuiz">
+                        <h4>수도 퀴즈</h4>
+                        <img src="/images/sudoImage.jpg"></img>
                     </div>
                 </Link>
                 <Link to="/jurumarble">
-                    <div className="type" id="jurumarble">
+                    <div className="type" id="buttonQuiz">
+                        <h4>몸으로 말해요</h4>
+                        <img src="/images/bodyImage.jpg"></img>
+                    </div>
+                </Link>
+                <Link to="/jurumarble">
+                    <div className="type" id="buttonQuiz">
                         <h4>주루마블</h4>
-                        <div>image of boardgame</div>
+                        <img src="/images/juruImage.jpg"></img>
                     </div>
                 </Link>
             </div>

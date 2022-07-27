@@ -58,6 +58,7 @@ button{
     margin-top: 10px;
 }
 
+
 #submit{
     background-color: #1c55f3;
 }
@@ -70,4 +71,22 @@ button{
 }
 #enroll:hover{
     background-color: #a3a3a3;
+}
+
+#makequiz{
+    width: 130px;
+    background-color: #929292;
+}
+
+#makequiz:hover{
+    width: 130px;
+    background-color: #a3a3a3;
+}
+
+
+#loginbtn {
+    width: auto;
+    background: rgba(0, 0, 0, 0);
+    margin: auto 0;
+    cursor: pointer;
 }

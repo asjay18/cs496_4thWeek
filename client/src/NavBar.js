@@ -19,6 +19,11 @@ function NavBar(){
                     <CustomLink to="/madePage">내가 만든 퀴즈</CustomLink>
                 </ul> */}
                 <Link className="loginButton" to="/login">로그인</Link>
+                {/* <button type="button" id="loginbtn" onClick={()=>{
+                    console.log(sessionStorage.getItem("token"));
+                    navigate("/login");
+                    window.location.reload();
+                }}>로그인</button> */}
             </div>
         )
     } else {
@@ -33,7 +38,7 @@ function NavBar(){
                     <CustomLink to="/madePage">내가 만든 퀴즈</CustomLink>
                 </ul>
                 {/* <Link className="loginButton" to="/login">로그아웃</Link> */}
-                <button type="button" id="enroll" onClick={()=>{
+                <button type="button" id="loginbtn" onClick={()=>{
                     sessionStorage.setItem("token", null);
                     console.log(sessionStorage.getItem("token"));
                     navigate("/");

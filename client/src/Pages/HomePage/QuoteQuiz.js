@@ -17,7 +17,6 @@ function QuoteQuiz(){
     return(
         <div>
             <h1>명대사 퀴즈</h1>
-            <h1>COMING SOON</h1>
             <table>
                 <thead>
                     <tr>
@@ -30,7 +29,7 @@ function QuoteQuiz(){
                         return (
                             <tr>
                                 <th>{index+1}</th>
-                                <Link to={'/view/${item.id}'}>
+                                <Link to={`/view/${item.bid}`}>
                                 <td>{item.title}</td>
                                 </Link>
                                 {/* <td>
@@ -43,6 +42,15 @@ function QuoteQuiz(){
                     })}
                 </tbody>
             </table>
+
+            {(sessionStorage.getItem("token") === 'null') ? 
+            <Link to="/login">
+                <button type="button" id="makequiz">퀴즈 만들기</button>
+            </Link> : 
+            <Link to="/make/명대사">
+                <button type="button" id="makequiz">퀴즈 만들기</button>
+            </Link>}
+
         </div>
         
     )

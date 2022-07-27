@@ -3,7 +3,7 @@ import React from "react";
 function Jurumarble(){
     return(
         <div id="jurumarblePage">
-            <img src="/images/jurumarble.svg"></img>
+            <h1>커밍쑨</h1>
         </div>
     )
 }

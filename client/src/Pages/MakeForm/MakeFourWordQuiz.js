@@ -1,14 +1,16 @@
 import React from "react";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 function MakeFourWordQuiz(){
+
+    const {type} = useParams();
+
     let initialValues = [];
     for(var i=0; i<15; i++){
         initialValues.push({ index:i, que: "", ans: "" });
     }
-
 
     const [quizValues, setQuizValues] = useState(initialValues);
     let copy
@@ -49,10 +51,10 @@ function MakeFourWordQuiz(){
         axios.get("http://192.249.18.147:80/write/quiz", {
             params:{
                 title: title,
-                writeruid: 1, //TODO
+                writeruid: sessionStorage.getItem("token"),
                 quiz: words.slice(0, -1),
                 answer: answers.slice(0, -1),
-                type: '네글자'}
+                type: type}
         }).then(function (response) {
 
         }).catch(err => {
@@ -60,15 +62,24 @@ function MakeFourWordQuiz(){
         });
         // console.log(title)
         // console.log(quizValues)
-
-        navigate("/fourWordQuiz");
+        
+        if(type === '네글자'){
+            navigate("/fourWordQuiz");
+        }else if(type === '초성'){
+            navigate("/chosungQuiz");
+        }else if(type === '속담'){
+            navigate("/sokdamQuiz");
+        }else if(type === '명대사'){
+            navigate("/quoteQuiz");
+        }
+        
         window.location.reload();
         e.preventDefault();
     };
 
     return(
         <div className="makePage">
-            <h1>네글자 퀴즈 만들기</h1>
+            <h1>{type} 퀴즈 만들기</h1>
             
             <form className="quizForm1" onSubmit={handleSubmit}>
                 <input

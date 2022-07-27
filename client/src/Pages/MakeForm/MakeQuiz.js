@@ -81,6 +81,7 @@ function MakeQuiz(){
                     </select>
                     <label>퀴즈제목</label> */}
                     <input 
+
                         id="title"
                         type="text" 
                         name="title" 
