@@ -14,33 +14,42 @@ function Login() {
         setFormValues({ ...formValues, [name]: value });
     };
 
+    let loginUser, userExist, user;
     const navigate = useNavigate();
     const handleLogin = async (e) => {
         e.preventDefault();
         if(Object.keys(validate(formValues)).length === 0){
             //form의 validation 통과
-            console.log(formValues)
             try {
                 //로그인 시도
-
-                axios.get("http://localhost:5000/api/login", {
-                    email: formValues.email,
-                    password: formValues.password
-                }).then(function (response) {
-                    // console.log(response.data);
-                    // localStorage.setItem('refresh-token', response.data['refresh-token']);
-                    // setCookie('access-token', response.data['access-token']);
-                }).catch(err => {
+                userExist=false;
+                axios.get("http://192.249.18.147:80/user/getall").then(response=>{
+                    for(var i=0; i<response.data.length; i++){
+                        user = response.data[i];
+                        if(user.email === formValues.email){
+                            userExist=true;
+                            loginUser=user;
+                            break;
+                        }
+                    }
+                    if(userExist === true){
+                        if(loginUser.password === formValues.password){
+                            console.log(`existing user, right password`)
+                            console.log(`you logged in`)
+                        }
+                        else{
+                            console.log(`invalidate password`)
+                        }
+                    }
+                    else{
+                        console.log(`no such user~`)
+                    }
+                }
+                ).catch(err => {
                     console.log(err);
-                });
-                
-                //로그아웃시
-                // removeCookie('access-token');
-                // localStorage.removeItem("refresh-token");
-
-                //된다면 (참고 사이트: https://www.youtube.com/watch?v=T5dIjye4b-I (12분))
-                
+                })
             } catch (err) {
+                console.log('알 수 없는 이유로 로그인에 실패했습니다.');
                 console.log(err);
             }
         }
