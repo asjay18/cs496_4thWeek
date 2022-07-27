@@ -11,7 +11,7 @@ const Quiz = () => {
 
     useEffect(() => {
         axios
-        .get(`http://localhost:5000/quiz/${id}`)
+        .get(`http://192.249.18.147:80/quiz/${id}`)
         .then((resp) => setList({ ...resp.data[0] }));
     }, [id]);
 
