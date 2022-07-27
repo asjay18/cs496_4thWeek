@@ -16,8 +16,6 @@ function FourWordQuiz() {
         loadData();
     }, []);
 
-    
-
 
     return(
         
@@ -25,9 +23,10 @@ function FourWordQuiz() {
             
             <h1>네글자 퀴즈</h1>
 
+            {(sessionStorage.getItem("token") === 'null') ? <></> : 
             <Link to="/make/fourwords">
                 <button>퀴즈 만들기</button>
-            </Link>
+            </Link>}
             
             <table>
                 <thead>

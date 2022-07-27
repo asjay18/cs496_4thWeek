@@ -5,6 +5,7 @@ import './Auth.css';
 import axios from "axios";
 
 function Login() {
+
     const initialValues = { email: "", password: "" };
     const [formValues, setFormValues] = useState(initialValues);
     const [formErrors, setFormErrors] = useState({});
@@ -36,6 +37,10 @@ function Login() {
                         if(loginUser.password === formValues.password){
                             console.log(`existing user, right password`)
                             console.log(`you logged in`)
+                            console.log(loginUser.uid)
+                            sessionStorage.setItem("token", loginUser.uid);
+                            navigate("/");
+                            window.location.reload();
                         }
                         else{
                             console.log(`invalidate password`)
