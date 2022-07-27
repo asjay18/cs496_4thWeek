@@ -14,30 +14,48 @@ function Enroll(){
     };
 
     const navigate = useNavigate();
+    let userExist, user;
     const handleEnroll = async (e) => {
         e.preventDefault();
         if(Object.keys(validate(formValues)).length === 0){
             //form의 validation 통과
-            console.log(formValues)
             try {
-                axios.post("http://localhost:5000/api/signup", {
-                    nickname: formValues.nickname,
-                    email: formValues.email,
-                    password: formValues.password
-                }).then(function (response) {
-                    
-                    if(response.data === "회원가입 성공") {
-                        navigate("/");
-                        window.location.reload();
-                    } else {
-                        
+                //로그인 시도
+                userExist=false;
+                axios.get("http://192.249.18.147:80/user/getall").then(response=>{
+                    console.log(response.data);
+                    for(var i=0; i<response.data.length; i++){
+                        user = response.data[i];
+                        if(user.email === formValues.email){
+                            userExist=true;
+                            break;
+                        }
                     }
-                    
-                    
-                }).catch(err => {
+                    if(userExist === false){
+                        console.log(`no such user, you can sign up`)
+                        axios.get("http://192.249.18.147:80/user/insert", {params:{
+                            nickname: formValues.nickname,
+                            email: formValues.email,
+                            password: formValues.password
+                        }}).then(()=>{
+                            navigate("/login");
+                            window.location.reload();
+                        }
+                        ).catch(err=>{
+                            console.log(`db에 유저 넣기 실패!!`);
+                            console.log(err);
+                        })
+                    }
+                    else{
+                        console.log(`there exists a user who uses the same email`)
+                        setFormErrors(validate(formValues).email==='이미 가입된 이메일')
+                    }
+                }
+                ).catch(err => {
                     console.log(err);
-                });
+                })
             } catch (err) {
+                console.log('알 수 없는 이유로 회원가입에 실패했습니다.');
                 console.log(err);
             }
         }
