@@ -46,7 +46,7 @@ function MakeFourWordQuiz(){
         // console.log(words.slice(0, -1));
         // console.log(answers.slice(0, -1));
         
-        axios.post("http://192.249.18.147:80/write/quiz", {
+        axios.get("http://192.249.18.147:80/write/quiz", {
             params:{
                 title: title,
                 writeruid: 1, //TODO

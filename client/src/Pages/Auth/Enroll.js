@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+//import { toast } from "react-toastify";
 
 function Enroll(){
     const initialValues = { nickname: "", email: "", password: "" };
@@ -38,6 +39,7 @@ function Enroll(){
                             email: formValues.email,
                             password: formValues.password
                         }}).then(()=>{
+                            //toast.success("계정 생성 완료");
                             navigate("/login");
                             window.location.reload();
                         }
@@ -48,6 +50,7 @@ function Enroll(){
                     }
                     else{
                         console.log(`there exists a user who uses the same email`)
+                        //toast.error("이미 가입된 이메일");
                         setFormErrors(validate(formValues).email==='이미 가입된 이메일')
                     }
                 }
