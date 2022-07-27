@@ -23,11 +23,7 @@ function FourWordQuiz() {
             
             <h1>네글자 퀴즈</h1>
 
-            {(sessionStorage.getItem("token") === 'null') ? <></> : 
-            <Link to="/make/fourwords">
-                <button>퀴즈 만들기</button>
-            </Link>}
-            
+
             <table>
                 <thead>
                     <tr>
@@ -53,6 +49,13 @@ function FourWordQuiz() {
                     })}
                 </tbody>
             </table>
+            {(sessionStorage.getItem("token") === 'null') ? 
+            <Link to="/login">
+                <button type="button" id="makequiz">퀴즈 만들기</button>
+            </Link> : 
+            <Link to="/make/네글자">
+                <button type="button" id="makequiz">퀴즈 만들기</button>
+            </Link>}
         </div>
     )
 }

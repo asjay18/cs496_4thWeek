@@ -20,6 +20,7 @@ import MakeQuiz from './Pages/MakeForm/MakeQuiz';
 import MakeFourWordQuiz from './Pages/MakeForm/MakeFourWordQuiz';
 import NoneSenseQuiz from './Pages/HomePage/NoneSenseQuiz';
 import QuoteQuiz from './Pages/HomePage/QuoteQuiz';
+import SokdamQuiz from './Pages/HomePage/SokdamQuiz';
 
 
 function App() {
@@ -33,16 +34,17 @@ function App() {
 
           <Route path='/madePage' element={<MadePage/>} />
           <Route path='/make' element={<MakeQuiz/>} />
-          <Route path='/make/fourwords' element={<MakeFourWordQuiz/>} />
+          <Route path='/make/:type' element={<MakeFourWordQuiz/>} />
           
           <Route path='/peopleQuiz' element={<PeopleQuiz/>} />
+          <Route path='/sokdamQuiz' element={<SokdamQuiz/>} />
           <Route path='/songQuiz' element={<SongQuiz/>} />
           <Route path='/chosungQuiz' element={<ChosungQuiz/>} />
           <Route path='/jurumarble' element={<Jurumarble/>} />
           <Route path='/fourWordQuiz' element={<FourWordQuiz/>}/>
           <Route path='/noneSenseQuiz' element={<NoneSenseQuiz/>}/>
           <Route path='/quoteQuiz' element={<QuoteQuiz/>}/>
-
+          <Route path='/quoteQuiz' element={<QuoteQuiz/>}/>
           <Route path='/login' element={<Login/>} />
           <Route path='/enroll' element={<Enroll/>} />
           <Route path='/quiz/:id' element={<Quiz/>} />

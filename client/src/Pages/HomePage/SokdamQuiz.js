@@ -4,11 +4,11 @@ import { useEffect } from "react";
 import {Link} from "react-router-dom";
 import axios from "axios";
 
-function ChosungQuiz() {
+function SokdamQuiz() {
     const [data, setData] = useState([]);
 
     const loadData = async () => {
-        const response = await axios.get("http://192.249.18.147:80/list/초성");
+        const response = await axios.get("http://192.249.18.147:80/list/속담");
         setData(response.data);
     }
 
@@ -21,7 +21,7 @@ function ChosungQuiz() {
         
         <div>
             
-            <h1>초성 퀴즈</h1>
+            <h1>속담 퀴즈</h1>
 
             
             <table>
@@ -50,17 +50,17 @@ function ChosungQuiz() {
                 </tbody>
             </table>
 
+
             {(sessionStorage.getItem("token") === 'null') ? 
             <Link to="/login">
                 <button type="button" id="makequiz">퀴즈 만들기</button>
             </Link> : 
-            <Link to="/make/네글자">
+            <Link to="/make/속담">
                 <button type="button" id="makequiz">퀴즈 만들기</button>
             </Link>}
-
 
         </div>
     )
 }
 
-export default ChosungQuiz;
+export default SokdamQuiz;
