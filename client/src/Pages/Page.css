@@ -1,5 +1,6 @@
 button {
     background-color: rgb(216, 112, 147);
+    cursor: pointer;
 }
 button:hover{
     background-color: rgb(230, 138, 168);
@@ -114,6 +115,7 @@ button:hover{
 
 .quizForm1 button{
     width: 80%;
+    cursor: pointer;
     background-color: olivedrab !important;
 }
 

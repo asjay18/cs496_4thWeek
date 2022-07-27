@@ -39,14 +39,15 @@ function MakeQuiz(){
             //image server에 넣기
             
             const form = new FormData()
-            form.append('files', formImages[0]);
+            //form.append('files', formImages[0]);
             console.log(formImages[0])
-            form.append('userId', 11);
             // console.log(formImages.length);
-            // Array.from(formImages).forEach((item)=>{
-            //     form.append('files', item);
-            // });
-            axios.post("http://192.249.18.147:80/new/quiz",form,{
+            Array.from(formImages).forEach((item)=>{
+                form.append('files', item);
+            });
+            axios.postForm("http://192.249.18.147:80/new/quiz",
+            form
+            ,{
                 headers: {'Content-Type': 'multipart/form-data'}
             }).then(()=>{}).catch((err)=>{
                 console.log(err);

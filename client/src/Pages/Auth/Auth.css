@@ -76,6 +76,7 @@ button{
 #makequiz{
     width: 130px;
     background-color: #929292;
+    cursor: pointer;
 }
 
 #makequiz:hover{
