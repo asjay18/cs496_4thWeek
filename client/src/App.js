@@ -18,6 +18,8 @@ import ChosungQuiz from './Pages/HomePage/ChosungQuiz';
 import Quiz from './Pages/HomePage/Quiz';
 import MakeQuiz from './Pages/MakeForm/MakeQuiz';
 import MakeFourWordQuiz from './Pages/MakeForm/MakeFourWordQuiz';
+import NoneSenseQuiz from './Pages/HomePage/NoneSenseQuiz';
+import QuoteQuiz from './Pages/HomePage/QuoteQuiz';
 
 
 function App() {
@@ -38,6 +40,9 @@ function App() {
           <Route path='/chosungQuiz' element={<ChosungQuiz/>} />
           <Route path='/jurumarble' element={<Jurumarble/>} />
           <Route path='/fourWordQuiz' element={<FourWordQuiz/>}/>
+          <Route path='/noneSenseQuiz' element={<NoneSenseQuiz/>}/>
+          <Route path='/quoteQuiz' element={<QuoteQuiz/>}/>
+
           <Route path='/login' element={<Login/>} />
           <Route path='/enroll' element={<Enroll/>} />
           <Route path='/quiz/:id' element={<Quiz/>} />

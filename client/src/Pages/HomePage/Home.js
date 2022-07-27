@@ -15,13 +15,13 @@ function Home(){
                 <Link to="/chosungQuiz">
                     <div className="type" id="chosungQuiz">
                         <h4>초성 퀴즈</h4>
-                        <div>image 신서유기</div>
+                        <div>image ㄱㄴㄷㄹ</div>
                     </div>
                 </Link>
-                <Link to="/peopleQuiz">
-                    <div className="type" id="peopleQuiz">
+                <Link to="/noneSenseQuiz">
+                    <div className="type" id="noneSenseQuiz">
                         <h4>넌센스 퀴즈</h4>
-                        <div>image of person</div>
+                        <div>image of nonesense</div>
                     </div>
                 </Link>
             </div>
@@ -32,10 +32,10 @@ function Home(){
                         <div>image of person</div>
                     </div>
                 </Link>
-                <Link to="/songQuiz">
-                    <div className="type" id="songQuiz">
+                <Link to="/quoteQuiz">
+                    <div className="type" id="quoteQuiz">
                         <h4>명대사 퀴즈</h4>
-                        <div>image of song</div>
+                        <div>image of 명대사</div>
                     </div>
                 </Link>
                 <Link to="/jurumarble">
