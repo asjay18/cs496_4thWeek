@@ -21,6 +21,7 @@ import MakeFourWordQuiz from './Pages/MakeForm/MakeFourWordQuiz';
 import NoneSenseQuiz from './Pages/HomePage/NoneSenseQuiz';
 import QuoteQuiz from './Pages/HomePage/QuoteQuiz';
 import SokdamQuiz from './Pages/HomePage/SokdamQuiz';
+import ImageQuiz from './Pages/HomePage/ImageQuiz';
 
 
 function App() {
@@ -48,6 +49,7 @@ function App() {
           <Route path='/login' element={<Login/>} />
           <Route path='/enroll' element={<Enroll/>} />
           <Route path='/quiz/:id' element={<Quiz/>} />
+          <Route path='/imageQuiz/:id' element={<ImageQuiz/>} />
         </Routes>
       </div>
     </div>

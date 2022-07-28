@@ -29,7 +29,7 @@ function QuoteQuiz(){
                         return (
                             <tr>
                                 <th>{index+1}</th>
-                                <Link to={`/view/${item.bid}`}>
+                                <Link to={`/imageQuiz/${item.bid}`}>
                                 <td>{item.title}</td>
                                 </Link>
                                 {/* <td>
