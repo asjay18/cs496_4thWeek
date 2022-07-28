@@ -50,7 +50,14 @@
     align-items: center;
     justify-content: center;
 }
+.quizAnswer h1{
+    font-size: 4rem !important;
+}
 
+.quizAnswer img{
+    height: 70%;
+
+}
 .quizPage button {
     margin: 0;
     width: 50%;
