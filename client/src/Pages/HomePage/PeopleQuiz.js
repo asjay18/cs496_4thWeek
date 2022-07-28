@@ -33,9 +33,9 @@ function PeopleQuiz(){
                         return (
                             <tr>
                                 <th>{index+1}</th>
-                                <Link to={'/imageQuiz/${item.id}'}>
-                                <td>{item.title}</td>
-                                </Link>
+                                <td><Link to={'/imageQuiz/${item.id}'}>
+                                    {item.title}
+                                </Link></td>
                                 {/* <td>
                                     <Link to={'/view/${item.id}'}>
                                     <button>View</button>
