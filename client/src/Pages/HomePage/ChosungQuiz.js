@@ -54,7 +54,7 @@ function ChosungQuiz() {
             <Link to="/login">
                 <button type="button" id="makequiz">퀴즈 만들기</button>
             </Link> : 
-            <Link to="/make/네글자">
+            <Link to="/make/초성">
                 <button type="button" id="makequiz">퀴즈 만들기</button>
             </Link>}
 
