@@ -1,13 +1,50 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {Link, useMatch, useResolvedPath } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 function NavBar(){
     const navigate = useNavigate();
-    console.log(sessionStorage.getItem("token"));
+    const [loginVal, setLoginVal] = useState('null');
 
-    if(sessionStorage.getItem("token") === 'null') {
+    const awaitForLoginCheck = async ()=>{
+        const isLogined = await sessionStorage.getItem("token");
+        if(isLogined === 'null' || isLogined === null){
+            console.log('not logged in')
+            setLoginVal('null');
+        }
+        else{
+            console.log(isLogined)
+            console.log('logged in')
+            setLoginVal('true');
+        }
+    }
+    
+    useEffect(()=>{
+        awaitForLoginCheck();
+    },[]);
 
+    return (
+            <div className="nav">
+                <CustomLink to="/">
+                    <h3>Recreation</h3>
+                </CustomLink>
+                {(loginVal === 'null')?
+                <Link className="loginButton" to="/login">로그인</Link>
+                :<>
+                    <ul className="navUl">
+                        <CustomLink to="/madePage">내가 만든 퀴즈</CustomLink>
+                    </ul>
+                    <button type="button" id="loginbtn" onClick={()=>{
+                        sessionStorage.setItem("token", null);
+                        console.log(sessionStorage.getItem("token"));
+                        navigate("/");
+                        window.location.reload();
+                    }}>로그아웃</button>
+                </>
+                }
+            </div>
+        )
+    
         return (
             <div className="nav">
                 <CustomLink to="/">
@@ -26,27 +63,7 @@ function NavBar(){
                 }}>로그인</button> */}
             </div>
         )
-    } else {
-        return (
-            <div className="nav">
-                <CustomLink to="/">
-                    <h3>Recreation</h3>
-                </CustomLink>
-                <ul className="navUl">
-                    {/* <CustomLink to="/">홈</CustomLink>
-                    <CustomLink to="/likedPage">좋아요한 퀴즈</CustomLink> */}
-                    <CustomLink to="/madePage">내가 만든 퀴즈</CustomLink>
-                </ul>
-                {/* <Link className="loginButton" to="/login">로그아웃</Link> */}
-                <button type="button" id="loginbtn" onClick={()=>{
-                    sessionStorage.setItem("token", null);
-                    console.log(sessionStorage.getItem("token"));
-                    navigate("/");
-                    window.location.reload();
-                }}>로그아웃</button>
-            </div>
-        )
-    }
+    
     
 }
 
