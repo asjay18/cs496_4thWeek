@@ -17,11 +17,12 @@ function QuoteQuiz(){
     return(
         <div>
             <h1>명대사 퀴즈</h1>
+
             <table>
                 <thead>
                     <tr>
-                        <th>No.</th>
-                        <th>Title</th>
+                        <th width="15%">No.</th>
+                        <th width="85%">퀴즈 제목</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -29,9 +30,9 @@ function QuoteQuiz(){
                         return (
                             <tr>
                                 <th>{index+1}</th>
-                                <Link to={`/view/${item.bid}`}>
-                                <td>{item.title}</td>
-                                </Link>
+                                <td><Link to={`/view/${item.bid}`}>
+                                    {item.title}
+                                </Link></td>
                                 {/* <td>
                                     <Link to={'/view/${item.id}'}>
                                     <button>View</button>

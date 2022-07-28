@@ -1,7 +1,6 @@
 import React from "react";
 import { useState } from "react";
 import { Stepper,Step,StepLabel } from '@mui/material';
-import imageCompression from "browser-image-compression";
 import axios from "axios";
 
 function MakeQuiz(){
