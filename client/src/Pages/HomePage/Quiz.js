@@ -17,16 +17,9 @@ const Quiz = () => {
         .then((resp) => setList({ ...resp.data[0] }));
     }, [id]);
 
-    // console.log(list);
-    // console.log(list.quiz);
-    // console.log(list.answer);
-
     const wordList = (list.quiz || ``).split(`\n`);
     const ansList = (list.answer || ``).split(`\n`);
     // type undefined 해결하는법
-
-    // console.log(wordList);
-    // console.log(ansList);
 
     const fourWordList = [];
 
@@ -39,16 +32,6 @@ const Quiz = () => {
     // console.log(fourWordList);
     
     fourWordList.push({word: '끝'});
-
-
-
-    // const fourWordList = [
-    //     {word: '고슴', ans: '도치' },
-    //     {word: '비트', ans: '코인' },
-    //     {word: '스파', ans: '게티' },
-    //     {word: '궁칼', ans: '국수' },
-    //     {word: '끝'}
-    // ]
 
     const [count, setCount] = useState(0);
     const countUntil = (fourWordList.length-1)*2;
